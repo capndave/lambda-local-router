@@ -1,0 +1,28 @@
+{
+  "name": "@capndave/lambda-local-router",
+  "version": "0.0.1",
+  "description": "A simple node server using lambda-local",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "require": "./cjs/index.js",
+    "import": "./esm/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Thompson",
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/node": "^20.12.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "yaml": "^2.4.1"
+  }
+}
