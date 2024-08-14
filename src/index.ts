@@ -1,5 +1,6 @@
 import { parse } from 'yaml';
 import fs from 'node:fs';
+import findup from 'findup-sync';
 
 console.log(require.main);
 
