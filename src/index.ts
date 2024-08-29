@@ -1,17 +1,21 @@
-import { parse } from 'yaml';
-import fs from 'node:fs';
-import findup from 'findup-sync';
+import { findConfigPath } from './find-config-path';
+import { parseJson } from './parsers/json';
+import { parseYaml } from './parsers/yaml';
 
-console.log(require.main);
-
-// exit if no serverless.yaml exists
-if (fs.existsSync('../serverless.yaml')) {
-	const file = fs.readFileSync('../serverless.yaml', 'utf8');
-	const result = parse(file);
-
-	if (!result?.functions) {
-		console.log(
-			'Your .yaml file is missing a functions declaration. Please include one',
-		);
-	}
+let config = undefined;
+if (!(yamlPath || jsonPath)) {
+	console.warn(`
+		No config file for lambda-local-router was found.
+		Please include a lambda-local-router.config.json file or
+		a serverless.yaml file in your project root.
+    `);
+} else if (jsonPath) {
+	config = parseJson(jsonPath as string);
+} else {
+	config = parseYaml(yamlPath as string);
 }
+
+console.log(config);
+
+// TODO: convert config into routes
+// TODO: create a local web server with node using routes
