@@ -1,10 +1,12 @@
-import { findUpMultiple } from 'find-up';
+import { findUp } from 'find-up'
 
 export async function findConfigPath() {
-	const [jsonPath, yamlPath] = await findUpMultiple([
-		'serverless.y?aml',
-		'lambda-local-router.config.json',
-	]); // match .yaml and .yml
+	const jsonPath = await findUp('lambda-local-router.config.json')
 
-	return { jsonPath, yamlPath };
+	if (jsonPath) {
+		const jsonPath = await findUp('lambda-local-router.config.json')
+		return jsonPath
+	}
+
+	return findUp('serverless.yaml')
 }

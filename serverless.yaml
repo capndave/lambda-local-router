@@ -1,8 +1,0 @@
-functions:
-  hello: # the name of the function
-    handler: "dist/index.handler"
-    events: # all methods and paths the lambda handles
-      - get-things: # name of a method and path
-          # path: /some-path/{param}
-          method: GET
-          path: /things
