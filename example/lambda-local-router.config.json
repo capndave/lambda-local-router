@@ -1,0 +1,7 @@
+{
+   "endpoints": [
+       {"method": "GET", "route": "/puppies", "handler": "./src/get.handler"},
+       {"method": "PUT", "route": "/puppies", "handler": "./src/put.handler"},
+       {"method": "ANY", "route": "*", "handler": "./src/index.handler"}
+   ] 
+}

@@ -1,6 +1,7 @@
 import('../src/index.js')
 
-it.skip('shows a console warning if there are no config files', () => {
-	console.log(__dirname)
-	expect(true).toBe(false)
+const consoleWarningSpy = vi.spyOn(console, 'warn')
+
+it('shows a console warning if there are no config files', () => {
+	expect(consoleWarningSpy).not.toHaveBeenCalled()
 })

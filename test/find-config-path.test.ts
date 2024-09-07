@@ -4,7 +4,6 @@ import { findConfigPath } from '../src/find-config-path'
 
 // This test will fail if there are config files hanging out in parent dirs!
 it('returns undefined if no config files exist', async () => {
-	console.log(__dirname)
 	const result = await findConfigPath()
 	expect(result).toBeUndefined()
 })
