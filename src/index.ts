@@ -20,7 +20,7 @@ if (!configPath) {
 }
 
 const endpoints = [
-	{ method: 'GET', route: '/puppies', handler: './src/get.handler' },
+	{ method: 'GET', route: '/puppies', handler: './test/fixtures/get.handler' },
 	{ method: 'PUT', route: '/puppies', handler: './src/put.handler' },
 	{ method: 'ANY', route: '*', handler: './src/index.handler' },
 ]
